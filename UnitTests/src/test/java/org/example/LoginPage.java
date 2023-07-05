@@ -15,7 +15,7 @@ public class LoginPage {
     }
 
     @FindBy(xpath = "//*[@id=\"passp-field-login\"]") private WebElement loginField;
-    @FindBy(xpath = "//*[contains(text(), \"Войти\")]") private WebElement loginBtn;
+    @FindBy(xpath = "//*[contains(text(), 'Войти')]/..") private WebElement loginBtn;
     @FindBy(xpath = "//*[@id=\"passp-field-passwd\"]") private WebElement passwdField;
 
     public void inputLogin(String login) {

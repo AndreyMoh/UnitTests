@@ -1,5 +1,6 @@
 package org.example;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -39,12 +40,13 @@ public class ProfilePage {
     public void entryMainMenu() {
         mainMenu.click();
     }
-    public void entryMail() {
-        mailItem.click();
-    }
 
     public void userLogout() {
         logoutBtn.click();
     }
 
+    public void entryMail() {
+        WebDriver a = driver.switchTo().frame(driver.findElement(By.className("UserWidget-Iframe")));
+        a.findElement(By.xpath("//a[@href='https://mail.yandex.ru']")).click();
+    }
 }

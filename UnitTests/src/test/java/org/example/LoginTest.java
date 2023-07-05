@@ -38,13 +38,12 @@ public class LoginTest {
     @Test
     public void loginTest() {
 
-// loginPage.inputLogin(ConfProperties.getProperty("login"));
-//
-// loginPage.clickLoginBtn();
-//
-// loginPage.inputPasswd(ConfProperties.getProperty("password"));
-//
-// loginPage.clickLoginBtn();
+        loginPage.inputLogin(ConfProperties.getProperty("login"));
+
+        loginPage.clickLoginBtn();
+
+        loginPage.inputPasswd(ConfProperties.getProperty("password"));
+        loginPage.clickLoginBtn();
 
         profilePage.entryMainMenu();
         profilePage.entryMail();
@@ -59,8 +58,10 @@ public class LoginTest {
      */
     @AfterClass
     public static void tearDown() {
-        profilePage.entryMenu();
+//        profilePage.entryMenu();
         profilePage.userLogout();
         driver.quit();
     }
+
+
 }
