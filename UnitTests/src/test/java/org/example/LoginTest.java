@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class LoginTest {
     public static LoginPage loginPage;
     public static ProfilePage profilePage;
+    public static EmailPage emailPage;
     public static WebDriver driver;
 
     /**
@@ -24,6 +25,7 @@ public class LoginTest {
         driver = new ChromeDriver();
         loginPage = new LoginPage(driver);
         profilePage = new ProfilePage(driver);
+        emailPage = new EmailPage(driver);
 
         driver.manage().window().maximize();
 
@@ -47,21 +49,28 @@ public class LoginTest {
 
         profilePage.entryMainMenu();
         profilePage.entryMail();
-        profilePage.entryMenu();
+
+        emailPage.entryWrite();
+        emailPage.InputEmailTo(ConfProperties.getProperty("vovaLogin"));
+        emailPage.InputTextTo(ConfProperties.getProperty("lorem"));
+        emailPage.sendText();
 
         String user = profilePage.getUserName();
         System.out.println(user);
+        System.out.println(ConfProperties.getProperty("lorem"));
+
+//        profilePage.entryMenu();
     }
 
     /**
      * осуществление выхода из аккаунта с последующим закрытием окна браузера
      */
-    @AfterClass
-    public static void tearDown() {
-//        profilePage.entryMenu();
-        profilePage.userLogout();
-        driver.quit();
-    }
+//    @AfterClass
+//    public static void tearDown() {
+////        profilePage.entryMenu();
+//        profilePage.userLogout();
+//        driver.quit();
+//    }
 
 
 }
