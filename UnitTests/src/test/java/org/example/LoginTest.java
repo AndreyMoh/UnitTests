@@ -65,12 +65,12 @@ public class LoginTest {
     /**
      * осуществление выхода из аккаунта с последующим закрытием окна браузера
      */
-    @AfterClass
-    public static void tearDown() {
-//        profilePage.entryMenu();
-        profilePage.userLogout();
-        driver.quit();
-    }
+//    @AfterClass
+//    public static void tearDown() {
+////        profilePage.entryMenu();
+//        profilePage.userLogout();
+//        driver.quit();
+//    }
 
 
 }
